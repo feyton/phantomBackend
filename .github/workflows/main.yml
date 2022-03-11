@@ -1,0 +1,24 @@
+name: CI
+
+on:
+    push:
+    pull_request:
+        branches:
+            - master
+            - staging
+            - develop
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        concurrency: test_environment
+        steps:
+            - uses: actions/checkout@v2
+            - name: Setup node dev server
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '16.x'
+                  cache: 'npm'
+            - run: npm install
+            - run: npm test
