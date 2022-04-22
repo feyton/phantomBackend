@@ -3,6 +3,7 @@ import sequelize from 'sequelize'
 const db = new sequelize('phantom', 'postgres', 'admin', {
     host: 'localhost',
     dialect: 'postgres',
+    logging: false,
     port: 5300,
     pool: {
         max: 5,
