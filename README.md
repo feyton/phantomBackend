@@ -2,7 +2,10 @@
 
 ### Inroduction
 
-This is a backend project for a phantom app
+This is a backend project for a phantom app. This is sample project to explore the websocket. So don't mind the styling.
+
+## Links:
+Hosted on heroku: [https://bus-tracker-phantom.herokuapp.com/map](https://bus-tracker-phantom.herokuapp.com/map)
 
 ### Contribution
 
