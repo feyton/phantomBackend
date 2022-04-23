@@ -1,0 +1,27 @@
+body {
+    background: rgb(248, 248, 248);
+    color: rgb(34, 36, 36);
+}
+
+#map {
+    margin: 20px 10rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.bus-info {
+    min-width: 400px;
+    min-height: 300px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 4px 4px #444;
+    background-color: #fff;
+    padding: 1rem;
+}
+.bus-info h3 {
+    text-align: center;
+}
