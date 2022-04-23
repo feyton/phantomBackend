@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
 import sequelize from 'sequelize'
+import { v4 as uuid } from 'uuid'
 import db from '../config/db.config.js'
-
 export const hashPassword = async (password) => {
     return await bcrypt.hash(password, 12)
 }
@@ -38,4 +38,23 @@ User.prototype.checkPass = async function (password) {
     console.log(pass)
     return pass
 }
+
+export const Trip = db.define('trip', {
+    uuid: {
+        type: sequelize.STRING,
+        allowNull: true,
+    },
+    path: {
+        type: sequelize.TEXT,
+        allowNull: false,
+    },
+    loggedAt: {
+        type: sequelize.STRING,
+    },
+})
+
+Trip.beforeCreate(async (trip) => {
+    trip.uuid = uuid()
+    trip.loggedAt = new Date().toLocaleString('en-GB')
+})
 export default User

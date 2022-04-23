@@ -1,6 +1,12 @@
 body {
     background: rgb(248, 248, 248);
     color: rgb(34, 36, 36);
+    font-family: "Lexend";
+    margin: 0px;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #map {
@@ -12,6 +18,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
     align-items: center;
+    width: 100%;
+    justify-content: center;
 }
 
 .bus-info {
@@ -22,6 +30,217 @@ body {
     background-color: #fff;
     padding: 1rem;
 }
+
 .bus-info h3 {
     text-align: center;
+}
+
+
+#status {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: fit-content;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 4px blue;
+    background-color: #fff;
+    font-weight: bolder;
+    font-family: "Lexend";
+}
+
+
+
+
+.inactive::after {
+    content: "";
+    border-radius: 50%;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    height: 15px;
+    width: 15px;
+    background-color: rgb(121, 11, 11);
+    animation: blink 2s linear 1s infinite forwards;
+    box-shadow: 0px 0px 3px 3px rgba(0, 87, 128, 0.863);
+}
+
+.active::after {
+    content: "";
+    border-radius: 50%;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    height: 15px;
+    width: 15px;
+    background-color: rgb(21, 126, 61);
+    animation: blink 2s linear 1s infinite forwards;
+    box-shadow: 0px 0px 3px 3px rgba(0, 87, 128, 0.863);
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+.nav {
+    width: 100%;
+    padding: .5rem 5rem;
+    background-color: rgb(218, 216, 216);
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.nav-list li {
+    margin: 0px 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 2rem;
+    box-shadow: 0px 0px 3px 3px gray;
+    border-radius: 10px;
+}
+
+button {
+    padding: .5rem 1rem;
+    margin: 5px 10px;
+    font-weight: bolder;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+#start {
+    background-color: green;
+    color: white;
+}
+
+#stop {
+    background-color: rgb(128, 51, 0);
+    color: white;
+}
+
+#finish {
+    background-color: rgb(126, 128, 0);
+    color: white;
+}
+
+.info {
+    box-shadow: 0px 0px 3px 3px green;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.lds-ellipsis {
+    display: inline-block;
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    top: 16px;
+    right: 35px;
+}
+
+.lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: rgb(64, 136, 82);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+.popup {
+    font-family: "Lexend";
+}
+
+.map-layers {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+    background-color: #fff;
+}
+
+.map-layers span {
+    text-align: left;
+    cursor: pointer;
+    margin: 3px;
 }
